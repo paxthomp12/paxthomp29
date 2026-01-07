@@ -28,79 +28,14 @@
     <link rel="apple-touch-icon" href="/assets/images/favicons/apple-touch-icon.png?v=12">
     <link rel="stylesheet" href="/styles.css">
 
+<!-- CSS -->
   <style>
     /* ===== RESET ===== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      background-color: #0e0e11;
-    }
-<script>
-(() => {
-  // =========================
-  // CONFIGURATION
-  // =========================
-  const themeConfig = {
-    defaultTheme: "dark",
-    themes: {
-      dark: {
-        color: "#0e0e11",
-        hero: "/assets/images/headshot/paxton-dark.jpg"
-      },
-      // Add more themes here later if desired
-      light: {
-        color: "#f5f5f5",
-        hero: "/assets/images/headshot/paxton-light.jpg"
-      }
-    }
-  };
-
-  // =========================
-  // THEME SELECTION
-  // =========================
-  const savedTheme = localStorage.getItem("theme");
-  const theme = savedTheme && themeConfig.themes[savedTheme] ? savedTheme : themeConfig.defaultTheme;
-  const themeData = themeConfig.themes[theme];
-
-  // =========================
-  // APPLY THEME COLOR
-  // =========================
-  document.documentElement.setAttribute("data-theme", theme);
-  document.documentElement.style.backgroundColor = themeData.color;
-
-  const metaTheme = document.querySelector('meta[name="theme-color"]');
-  if (metaTheme) metaTheme.setAttribute("content", themeData.color);
-
-  // =========================
-  // PRELOAD HERO IMAGE
-  // =========================
-  const preloadLink = document.createElement("link");
-  preloadLink.rel = "preload";
-  preloadLink.as = "image";
-  preloadLink.href = themeData.hero;
-  preloadLink.fetchPriority = "high";
-  document.head.appendChild(preloadLink);
-
-  // =========================
-  // UPDATE HERO IMAGE IN HTML
-  // =========================
-  const heroImg = document.getElementById("hero-headshot-img");
-  if (heroImg && heroImg.src !== themeData.hero) {
-    heroImg.src = themeData.hero;
-  }
-
-})();
-</script>
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       color: #ffffff;
-      background-color: #0e0e11;
       line-height: 1.6;
     }
 
@@ -147,9 +82,7 @@
       opacity: 0.8;
     }
 
-    header a:hover {
-      opacity: 1;
-    }
+    header a:hover { opacity: 1; }
 
     /* ===== SECTIONS ===== */
     main {
@@ -158,30 +91,11 @@
       padding: 140px 32px 80px;
     }
 
-    section {
-      min-height: 90vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
+    section { min-height: 90vh; display: flex; flex-direction: column; justify-content: center; }
 
-    h1 {
-      font-size: 3.2rem;
-      margin-bottom: 20px;
-      letter-spacing: -0.03em;
-    }
-
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      letter-spacing: -0.02em;
-    }
-
-    p {
-      max-width: 700px;
-      font-size: 1.1rem;
-      color: #cfcfd4;
-    }
+    h1 { font-size: 3.2rem; margin-bottom: 20px; letter-spacing: -0.03em; }
+    h2 { font-size: 2rem; margin-bottom: 20px; letter-spacing: -0.02em; }
+    p { max-width: 700px; font-size: 1.1rem; color: #cfcfd4; }
 
     /* ===== FOCUS CARDS ===== */
     .focus {
@@ -198,28 +112,15 @@
       border-radius: 14px;
     }
 
-    .card h3 {
-      margin-bottom: 10px;
-      font-size: 1.2rem;
-    }
+    .card h3 { margin-bottom: 10px; font-size: 1.2rem; }
 
     /* ===== FOOTER ===== */
-    footer {
-      text-align: center;
-      padding: 60px 20px;
-      font-size: 0.85rem;
-      color: #777;
-    }
+    footer { text-align: center; padding: 60px 20px; font-size: 0.85rem; color: #777; }
 
     /* ===== MOBILE ===== */
     @media (max-width: 768px) {
-      h1 {
-        font-size: 2.4rem;
-      }
-
-      main {
-        padding: 120px 24px 60px;
-      }
+      h1 { font-size: 2.4rem; }
+      main { padding: 120px 24px 60px; }
     }
   </style>
 </head>
@@ -232,10 +133,10 @@
     <strong>Paxton Thompson</strong>
     <nav>
       <a href="#about">About</a>
-      <a href="#on the mound">On the Mound</a>
-      <a href="#in the office">In the Office</a>
-      <a href="#old logan capital">Old Logan Capital</a>
-      <a href="#hilanthropic work">Philanthropic Work</a>
+      <a href="#on-the-mound">On the Mound</a>
+      <a href="#in-the-office">In the Office</a>
+      <a href="#old-logan-capital">Old Logan Capital</a>
+      <a href="#philanthropic-work">Philanthropic Work</a>
     </nav>
   </header>
 
@@ -247,23 +148,22 @@
         I’m a professional athlete with a long-term mindset — driven by
         competition, consistency, and the pursuit of growth beyond the field.
       </p>
+      <!-- Hero Image -->
+      <img id="hero-headshot-img" src="/assets/images/headshot/paxton-dark.jpg" alt="Paxton Thompson" class="hero-headshot" width="100" height="100">
     </section>
 
     <!-- FOCUS -->
     <section id="focus">
       <h2>Areas of Focus</h2>
-
       <div class="focus">
         <div class="card">
           <h3>Performance</h3>
           <p>High standards, preparation, and repeatable execution.</p>
         </div>
-
         <div class="card">
           <h3>Investing</h3>
           <p>Long-term value creation through disciplined decision-making.</p>
         </div>
-
         <div class="card">
           <h3>Building</h3>
           <p>Creating systems and opportunities beyond the game.</p>
@@ -279,7 +179,50 @@
   </main>
 
   <footer>
-    © 2026 Your Name
+    © 2026 Paxton Thompson
   </footer>
+
+  <!-- =========================
+       Post-Beginner Theme & Hero JS
+       ========================= -->
+  <script>
+  (() => {
+    const themeConfig = {
+      defaultTheme: "dark",
+      themes: {
+        dark: {
+          color: "#0e0e11",
+          hero: "/assets/images/headshot/paxton-dark.jpg"
+        },
+        light: {
+          color: "#f5f5f5",
+          hero: "/assets/images/headshot/paxton-light.jpg"
+        }
+      }
+    };
+
+    const savedTheme = localStorage.getItem("theme");
+    const theme = savedTheme && themeConfig.themes[savedTheme] ? savedTheme : themeConfig.defaultTheme;
+    const themeData = themeConfig.themes[theme];
+
+    // Apply theme color
+    document.documentElement.setAttribute("data-theme", theme);
+    document.documentElement.style.backgroundColor = themeData.color;
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    if (metaTheme) metaTheme.setAttribute("content", themeData.color);
+
+    // Preload hero image
+    const preloadLink = document.createElement("link");
+    preloadLink.rel = "preload";
+    preloadLink.as = "image";
+    preloadLink.href = themeData.hero;
+    preloadLink.fetchPriority = "high";
+    document.head.appendChild(preloadLink);
+
+    // Update hero image
+    const heroImg = document.getElementById("hero-headshot-img");
+    if (heroImg && heroImg.src !== themeData.hero) heroImg.src = themeData.hero;
+  })();
+  </script>
 </body>
 </html>
