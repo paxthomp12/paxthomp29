@@ -1,212 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="theme-color" content="#0e0e11">
+    <!-- Google Analytics (Customize with your GA Tracking ID) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR-GA-TRACKING-ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'YOUR-GA-TRACKING-ID');
+    </script>
 
-  <title>Your Name</title>
-  <meta name="description" content="Professional athlete with a focus on long-term thinking, investing, and building beyond the game.">
+    <!-- Metadata for Search Engines -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0a0e1a">
+    <meta name="description" content="Personal portfolio of Pax Thompson. A pitcher, entrepreneur, and philanthropist.">
+    
+    <!-- Open Graph Metadata -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pax-portfolio.com">
+    <meta property="og:title" content="Pax Thompson Portfolio">
+    <meta property="og:description" content="Discover the portfolio of Pax Thompson, showcasing achievements on the mound, entrepreneurship, and philanthropic work.">
+    <meta property="og:image" content="/assets/images/og/og-image.png">
 
-  <!-- Minimal SEO / Sharing -->
-  <meta property="og:title" content="Your Name">
-  <meta property="og:description" content="Long-term thinking. Discipline. Execution.">
-  <meta property="og:type" content="website">
+    <!-- Twitter Metadata -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="your-twitter-handle">
+    <meta name="twitter:title" content="Pax Thompson Portfolio">
+    <meta name="twitter:description" content="Discover the portfolio of Pax Thompson, showcasing achievements on the mound, entrepreneurship, and philanthropic work.">
+    <meta name="twitter:image" content="/assets/images/og/og-image.png">
 
-  <style>
-    /* ===== RESET ===== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <title>Pax Thompson's Portfolio</title>
+    <link rel="icon" href="/assets/images/favicons/favicon.png" sizes="32x32">
+    <link rel="stylesheet" href="/assets/css/styles.css">
 
-    html {
-      scroll-behavior: smooth;
-      background-color: #0e0e11;
-    }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      color: #ffffff;
-      background-color: #0e0e11;
-      line-height: 1.6;
-    }
-
-    /* ===== BACKGROUND ===== */
-    .page-background {
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.04), transparent 40%),
-        radial-gradient(circle at 80% 80%, rgba(255,255,255,0.03), transparent 40%);
-      z-index: -2;
-    }
-
-    .grid-overlay {
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-size: 40px 40px;
-      z-index: -1;
-      opacity: 0.3;
-    }
-
-    /* ===== NAV ===== */
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 20px 32px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(14,14,17,0.7);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-    }
-
-    header a {
-      color: #ffffff;
-      text-decoration: none;
-      margin-left: 20px;
-      font-size: 0.95rem;
-      opacity: 0.8;
-    }
-
-    header a:hover {
-      opacity: 1;
-    }
-
-    /* ===== SECTIONS ===== */
-    main {
-      max-width: 1100px;
-      margin: auto;
-      padding: 140px 32px 80px;
-    }
-
-    section {
-      min-height: 90vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    h1 {
-      font-size: 3.2rem;
-      margin-bottom: 20px;
-      letter-spacing: -0.03em;
-    }
-
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      letter-spacing: -0.02em;
-    }
-
-    p {
-      max-width: 700px;
-      font-size: 1.1rem;
-      color: #cfcfd4;
-    }
-
-    /* ===== FOCUS CARDS ===== */
-    .focus {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 28px;
-      margin-top: 40px;
-    }
-
-    .card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      padding: 28px;
-      border-radius: 14px;
-    }
-
-    .card h3 {
-      margin-bottom: 10px;
-      font-size: 1.2rem;
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      text-align: center;
-      padding: 60px 20px;
-      font-size: 0.85rem;
-      color: #777;
-    }
-
-    /* ===== MOBILE ===== */
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2.4rem;
-      }
-
-      main {
-        padding: 120px 24px 60px;
-      }
-    }
-  </style>
+    <!-- Custom Theme Script -->
+    <script>
+        (function() {
+            var themeColors = { driveline: "#1a1a1a", hopkins: "#0e1e2a", mets: "#002d72", phillies: "#e81828" };
+            var theme = localStorage.getItem("theme") || "hopkins"; // Default theme
+            var color = themeColors[theme] || themeColors.hopkins;
+            document.documentElement.setAttribute("data-theme", theme);
+            document.documentElement.style.backgroundColor = color;
+            var meta = document.querySelector('meta[name="theme-color"]');
+            if (meta) meta.setAttribute("content", color);
+        })();
+    </script>
 </head>
+<body>
+    <div id="top" class="page-wrapper">
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="hero-content">
+                <h1>Pax Thompson</h1>
+                <p>Pitcher | Entrepreneur | Philanthropist</p>
+                <button id="theme-toggle">Change Theme</button>
+            </div>
+        </header>
+        
+        <!-- Main Content -->
+        <main>
+            <!-- About Section -->
+            <section id="about" class="section">
+                <h2>About Me</h2>
+                <p>Hello! I'm Pax Thompson, a professional pitcher and entrepreneur. Welcome to my portfolio where I share my journey both on and off the mound.</p>
+            </section>
 
-<body id="top">
-  <div class="page-background"></div>
-  <div class="grid-overlay"></div>
+            <!-- Pitching Career Section -->
+            <section id="pitching" class="section">
+                <h2>Pitching Career</h2>
+                <p>Stats and highlights of my career on the mound.</p>
+            </section>
 
-  <header>
-    <strong>Your Name</strong>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#focus">Focus</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+            <!-- Entrepreneurial Work -->
+            <section id="entrepreneur" class="section">
+                <h2>Entrepreneurship</h2>
+                <p>Co-founder of Old Logan Capital, leading the way in business innovation.</p>
+            </section>
 
-  <main>
-    <!-- HERO / ABOUT -->
-    <section id="about">
-      <h1>Built on Discipline.<br>Focused on What’s Next.</h1>
-      <p>
-        I’m a professional athlete with a long-term mindset — driven by
-        competition, consistency, and the pursuit of growth beyond the field.
-      </p>
-    </section>
+            <!-- Philanthropy Section -->
+            <section id="philanthropy" class="section">
+                <h2>Philanthropy</h2>
+                <p>Dedicated to giving back to the community through various initiatives.</p>
+            </section>
 
-    <!-- FOCUS -->
-    <section id="focus">
-      <h2>Areas of Focus</h2>
+            <!-- Contact Section -->
+            <section id="contact" class="section">
+                <h2>Contact Me</h2>
+                <p>Feel free to connect via email or follow me on social media.</p>
+            </section>
+        </main>
 
-      <div class="focus">
-        <div class="card">
-          <h3>Performance</h3>
-          <p>High standards, preparation, and repeatable execution.</p>
-        </div>
+        <!-- Footer -->
+        <footer>
+            <p>© 2026 Pax Thompson. All rights reserved.</p>
+        </footer>
+    </div>
 
-        <div class="card">
-          <h3>Investing</h3>
-          <p>Long-term value creation through disciplined decision-making.</p>
-        </div>
-
-        <div class="card">
-          <h3>Building</h3>
-          <p>Creating systems and opportunities beyond the game.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: your@email.com</p>
-    </section>
-  </main>
-
-  <footer>
-    © 2026 Your Name
-  </footer>
+    <!-- External Scripts -->
+    <script src="/assets/js/script.js"></script>
 </body>
 </html>
