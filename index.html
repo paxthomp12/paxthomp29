@@ -27,11 +27,6 @@
     <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-32.png?v=12" sizes="32x32">
     <link rel="apple-touch-icon" href="/assets/images/favicons/apple-touch-icon.png?v=12">
     <link rel="stylesheet" href="/styles.css">
-  
-  <!-- Minimal SEO / Sharing -->
-  <meta property="og:title" content="Your Name">
-  <meta property="og:description" content="Long-term thinking. Discipline. Execution.">
-  <meta property="og:type" content="website">
 
   <style>
     /* ===== RESET ===== */
@@ -45,6 +40,62 @@
       scroll-behavior: smooth;
       background-color: #0e0e11;
     }
+<script>
+(() => {
+  // =========================
+  // CONFIGURATION
+  // =========================
+  const themeConfig = {
+    defaultTheme: "dark",
+    themes: {
+      dark: {
+        color: "#0e0e11",
+        hero: "/assets/images/headshot/paxton-dark.jpg"
+      },
+      // Add more themes here later if desired
+      light: {
+        color: "#f5f5f5",
+        hero: "/assets/images/headshot/paxton-light.jpg"
+      }
+    }
+  };
+
+  // =========================
+  // THEME SELECTION
+  // =========================
+  const savedTheme = localStorage.getItem("theme");
+  const theme = savedTheme && themeConfig.themes[savedTheme] ? savedTheme : themeConfig.defaultTheme;
+  const themeData = themeConfig.themes[theme];
+
+  // =========================
+  // APPLY THEME COLOR
+  // =========================
+  document.documentElement.setAttribute("data-theme", theme);
+  document.documentElement.style.backgroundColor = themeData.color;
+
+  const metaTheme = document.querySelector('meta[name="theme-color"]');
+  if (metaTheme) metaTheme.setAttribute("content", themeData.color);
+
+  // =========================
+  // PRELOAD HERO IMAGE
+  // =========================
+  const preloadLink = document.createElement("link");
+  preloadLink.rel = "preload";
+  preloadLink.as = "image";
+  preloadLink.href = themeData.hero;
+  preloadLink.fetchPriority = "high";
+  document.head.appendChild(preloadLink);
+
+  // =========================
+  // UPDATE HERO IMAGE IN HTML
+  // =========================
+  const heroImg = document.getElementById("hero-headshot-img");
+  if (heroImg && heroImg.src !== themeData.hero) {
+    heroImg.src = themeData.hero;
+  }
+
+})();
+</script>
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
