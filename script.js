@@ -1,25 +1,18 @@
-/* ===========================================
-   SCRIPT.JS – INTERACTIVITY FOR YOUR SITE
-   =========================================== */
+/* ---------- SCRIPT.JS ---------- */
 
 /* ---------- THEME SWITCHING ---------- */
 const themeButtons = document.querySelectorAll(".theme-btn");
 
 themeButtons.forEach(btn => {
   btn.addEventListener("click", () => {
-    const theme = btn.dataset.theme; // "light" or "dark"
+    const theme = btn.dataset.theme;
     document.documentElement.setAttribute("data-theme", theme);
-
-    // Highlight active button
     themeButtons.forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
-
-    // Optional: store user preference in localStorage
     localStorage.setItem("site-theme", theme);
   });
 });
 
-// Apply saved theme on page load
 window.addEventListener("DOMContentLoaded", () => {
   const savedTheme = localStorage.getItem("site-theme");
   if(savedTheme) {
@@ -30,53 +23,38 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-
 /* ---------- HERO ANIMATIONS ---------- */
 window.addEventListener("DOMContentLoaded", () => {
   const heroItems = document.querySelectorAll(".hero-intro > *");
-
   heroItems.forEach((item, i) => {
     item.style.animationDelay = `${i * 0.15}s`;
-    item.classList.add("fade-in-up"); // Make sure your CSS has this animation
+    item.classList.add("fade-in-up"); 
   });
 });
-
 
 /* ---------- CARD INTERACTIVITY ---------- */
 const cards = document.querySelectorAll(".content-card");
 
 cards.forEach(card => {
   const badge = card.querySelector(".new-badge");
+  if(badge) setTimeout(() => badge.style.display = "none", 3000);
 
-  // Example: hide badge after 3 seconds
-  if(badge) {
-    setTimeout(() => badge.style.display = "none", 3000);
-  }
-
-  // Card click event
   card.addEventListener("click", () => {
-    const desc = card.querySelector(".card-description")?.innerText || "No description";
+    const desc = card.querySelector("p")?.innerText || "No description";
     console.log("Card clicked:", desc);
-    // Optional: Add more interactions here (modal popup, redirect, etc.)
   });
 });
 
-
-/* ---------- MOBILE NAVIGATION ---------- */
+/* ---------- MOBILE NAV ---------- */
 const navToggle = document.querySelector(".nav-toggle");
 const navLinks = document.querySelector(".nav-links");
 
 if(navToggle && navLinks) {
-  navToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("open"); // CSS handles showing/hiding
-  });
-
-  // Optional: close nav when link clicked
+  navToggle.addEventListener("click", () => navLinks.classList.toggle("open"));
   navLinks.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => navLinks.classList.remove("open"));
   });
 }
-
 
 /* ---------- SMOOTH SCROLLING ---------- */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -87,12 +65,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-
-/* ---------- OPTIONAL: DYNAMIC YEAR IN FOOTER ---------- */
+/* ---------- FOOTER YEAR ---------- */
 const yearEl = document.querySelector(".current-year");
 if(yearEl) yearEl.textContent = new Date().getFullYear();
-
-
-/* ---------- OPTIONAL: ADD MORE CUSTOM INTERACTIONS BELOW ---------- */
-// Example: Button hover animation, modal popups, API data, etc.
-
