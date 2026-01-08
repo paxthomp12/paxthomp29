@@ -61,28 +61,24 @@
     }
 
     /* ===== NAV ===== */
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 20px 32px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(14,14,17,0.7);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-    }
+    header strong {
+  font-size: 1.2rem;
+  color: #ffcc00; /* Accent color for your name */
+}
 
-    header a {
-      color: #ffffff;
-      text-decoration: none;
-      margin-left: 20px;
-      font-size: 0.95rem;
-      opacity: 0.8;
-    }
+header nav a {
+  color: #ffffff;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
 
-    header a:hover { opacity: 1; }
+header nav a:hover {
+  border-bottom: 2px solid #ffcc00;
+  transform: scale(1.05);
+  transition: all 0.3s ease-out;
+}
 
     /* ===== SECTIONS ===== */
     main {
@@ -130,15 +126,16 @@
   <div class="grid-overlay"></div>
 
   <header>
-    <strong>Paxton Thompson</strong>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#on-the-mound">On the Mound</a>
-      <a href="#in-the-office">In the Office</a>
-      <a href="#old-logan-capital">Old Logan Capital</a>
-      <a href="#philanthropic-work">Philanthropic Work</a>
-    </nav>
-  </header>
+  <img src="https://github.com/paxthomp12/paxthomp29/blob/main/assets/images/IMwn8OwXQKiE5qk-pV4ihA.jpg" alt="Logo" style="width: 40px; height: 40px; margin-right: 10px;">
+  <strong>Paxton Thompson</strong>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#on-the-mound">On the Mound</a>
+    <a href="#in-the-office">In the Office</a>
+    <a href="#old-logan-capital">Old Logan Capital</a>
+    <a href="#philanthropic-work">Philanthropic Work</a>
+  </nav>
+</header>
 
   <main>
     <!-- HERO / ABOUT -->
